@@ -26,6 +26,8 @@ researcher = Agent(
     allow_delegation=True,
 )
 
+# predictor
+
 writter = Agent(
     role="Writer",
     goal="Narrate compelling tech stories about {topic}",
