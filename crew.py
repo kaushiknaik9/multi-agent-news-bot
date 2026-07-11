@@ -3,16 +3,13 @@ from agents import researcher, writter
 from crewai import Crew, Process
 
 
-def resultoutput():
+def resultoutput(topic):
     crew = Crew(
         agents=[researcher, writter],
         tasks=[research_task, write_task],
         process=Process.sequential,
     )
 
-    inp = str(input("What news are you on now: "))
-    og_inp = {"topic": inp}
-    result = crew.kickoff(inputs=og_inp)
-    final_result = result.raw
+    result = crew.kickoff(inputs={"topic": topic})
 
-    return final_result
+    return str(result)
